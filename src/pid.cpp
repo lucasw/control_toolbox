@@ -190,7 +190,7 @@ void Pid::initDynamicReconfig(ros::NodeHandle &node)
   updateDynamicReconfig();
 
   // Set callback
-  param_reconfig_callback_ = boost::bind(&Pid::dynamicReconfigCallback, this, _1, _2);
+  param_reconfig_callback_ = boost::bind(&Pid::dynamicReconfigCallback, this, boost::placeholders::_1, boost::placeholders::_2);
   param_reconfig_server_->setCallback(param_reconfig_callback_);
 }
 
